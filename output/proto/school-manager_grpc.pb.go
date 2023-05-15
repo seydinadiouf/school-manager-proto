@@ -23,7 +23,6 @@ const _ = grpc.SupportPackageIsVersion7
 // For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
 type SchoolManagerServiceClient interface {
 	GetStudentsWithFilter(ctx context.Context, in *GetStudentRequest, opts ...grpc.CallOption) (*StudentsPage, error)
-	SignIn(ctx context.Context, in *SignInRequest, opts ...grpc.CallOption) (*SignInResponse, error)
 	AddStudentToClass(ctx context.Context, in *CreateStudentRequest, opts ...grpc.CallOption) (*Student, error)
 }
 
@@ -44,15 +43,6 @@ func (c *schoolManagerServiceClient) GetStudentsWithFilter(ctx context.Context, 
 	return out, nil
 }
 
-func (c *schoolManagerServiceClient) SignIn(ctx context.Context, in *SignInRequest, opts ...grpc.CallOption) (*SignInResponse, error) {
-	out := new(SignInResponse)
-	err := c.cc.Invoke(ctx, "/proto.SchoolManagerService/signIn", in, out, opts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
 func (c *schoolManagerServiceClient) AddStudentToClass(ctx context.Context, in *CreateStudentRequest, opts ...grpc.CallOption) (*Student, error) {
 	out := new(Student)
 	err := c.cc.Invoke(ctx, "/proto.SchoolManagerService/AddStudentToClass", in, out, opts...)
@@ -67,7 +57,6 @@ func (c *schoolManagerServiceClient) AddStudentToClass(ctx context.Context, in *
 // for forward compatibility
 type SchoolManagerServiceServer interface {
 	GetStudentsWithFilter(context.Context, *GetStudentRequest) (*StudentsPage, error)
-	SignIn(context.Context, *SignInRequest) (*SignInResponse, error)
 	AddStudentToClass(context.Context, *CreateStudentRequest) (*Student, error)
 	mustEmbedUnimplementedSchoolManagerServiceServer()
 }
@@ -78,9 +67,6 @@ type UnimplementedSchoolManagerServiceServer struct {
 
 func (UnimplementedSchoolManagerServiceServer) GetStudentsWithFilter(context.Context, *GetStudentRequest) (*StudentsPage, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method GetStudentsWithFilter not implemented")
-}
-func (UnimplementedSchoolManagerServiceServer) SignIn(context.Context, *SignInRequest) (*SignInResponse, error) {
-	return nil, status.Errorf(codes.Unimplemented, "method SignIn not implemented")
 }
 func (UnimplementedSchoolManagerServiceServer) AddStudentToClass(context.Context, *CreateStudentRequest) (*Student, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method AddStudentToClass not implemented")
@@ -116,24 +102,6 @@ func _SchoolManagerService_GetStudentsWithFilter_Handler(srv interface{}, ctx co
 	return interceptor(ctx, in, info, handler)
 }
 
-func _SchoolManagerService_SignIn_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(SignInRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(SchoolManagerServiceServer).SignIn(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: "/proto.SchoolManagerService/signIn",
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(SchoolManagerServiceServer).SignIn(ctx, req.(*SignInRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
 func _SchoolManagerService_AddStudentToClass_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(CreateStudentRequest)
 	if err := dec(in); err != nil {
@@ -162,10 +130,6 @@ var SchoolManagerService_ServiceDesc = grpc.ServiceDesc{
 		{
 			MethodName: "getStudentsWithFilter",
 			Handler:    _SchoolManagerService_GetStudentsWithFilter_Handler,
-		},
-		{
-			MethodName: "signIn",
-			Handler:    _SchoolManagerService_SignIn_Handler,
 		},
 		{
 			MethodName: "AddStudentToClass",
