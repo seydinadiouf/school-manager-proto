@@ -1,4 +1,4 @@
-module school-manager-proto
+module github.com/seydinadiouf/school-manager-proto
 
 go 1.18
 
