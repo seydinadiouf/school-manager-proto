@@ -10,19 +10,10 @@ option go_package = "./proto";
 
 service SchoolManagerService {
 
-  rpc getStudentsWithFilter(GetStudentRequest) returns (StudentsPage){
-    option (google.api.http) = {
-      get: "/students"
-    };
-  }
+  rpc getStudentsWithFilter(GetStudentRequest) returns (StudentsPage){}
 
 
-  rpc AddStudentToClass(CreateStudentRequest) returns (Student){
-    option (google.api.http) = {
-      post: "/students/add-student-to-class"
-      body: "*"
-    };
-  }
+  rpc AddStudentToClass(CreateStudentRequest) returns (Student){}
 
 
 }

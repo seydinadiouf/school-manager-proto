@@ -35,7 +35,7 @@ func NewSchoolManagerAuthServiceClient(cc grpc.ClientConnInterface) SchoolManage
 
 func (c *schoolManagerAuthServiceClient) SignIn(ctx context.Context, in *SignInRequest, opts ...grpc.CallOption) (*SignInResponse, error) {
 	out := new(SignInResponse)
-	err := c.cc.Invoke(ctx, "/proto.SchoolManagerAuthService/signIn", in, out, opts...)
+	err := c.cc.Invoke(ctx, "/proto.SchoolManagerAuthService/SignIn", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -81,7 +81,7 @@ func _SchoolManagerAuthService_SignIn_Handler(srv interface{}, ctx context.Conte
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: "/proto.SchoolManagerAuthService/signIn",
+		FullMethod: "/proto.SchoolManagerAuthService/SignIn",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
 		return srv.(SchoolManagerAuthServiceServer).SignIn(ctx, req.(*SignInRequest))
@@ -97,7 +97,7 @@ var SchoolManagerAuthService_ServiceDesc = grpc.ServiceDesc{
 	HandlerType: (*SchoolManagerAuthServiceServer)(nil),
 	Methods: []grpc.MethodDesc{
 		{
-			MethodName: "signIn",
+			MethodName: "SignIn",
 			Handler:    _SchoolManagerAuthService_SignIn_Handler,
 		},
 	},

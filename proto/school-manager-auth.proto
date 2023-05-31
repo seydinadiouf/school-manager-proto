@@ -10,10 +10,7 @@ option go_package = "./proto";
 
 service SchoolManagerAuthService {
 
-  rpc signIn(SignInRequest) returns (SignInResponse){
-    option (google.api.http) = {
-      post: "/login"
-      body: "*"
-    };
+  rpc SignIn(SignInRequest) returns (SignInResponse){
+
   }
 }

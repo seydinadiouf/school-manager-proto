@@ -5,10 +5,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="c7d664e7-b19c-4955-8f36-8a80596b6b1a" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/output/proto/school-manager.pb.go" beforeDir="false" afterPath="$PROJECT_DIR$/output/proto/school-manager.pb.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/output/proto/school-manager.pb.gw.go" beforeDir="false" afterPath="$PROJECT_DIR$/output/proto/school-manager.pb.gw.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/output/proto/school-manager_grpc.pb.go" beforeDir="false" afterPath="$PROJECT_DIR$/output/proto/school-manager_grpc.pb.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/proto/school-manager-auth.proto" beforeDir="false" afterPath="$PROJECT_DIR$/proto/school-manager-auth.proto" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/proto/school-manager.proto" beforeDir="false" afterPath="$PROJECT_DIR$/proto/school-manager.proto" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -42,7 +41,8 @@
     "go.sdk.automatically.set": "true",
     "last_opened_file_path": "/Users/seydinadiouf/GolandProjects/school-manager-proto/proto",
     "node.js.detected.package.eslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)"
+    "node.js.selected.package.eslint": "(autodetect)",
+    "settings.editor.selected.configurable": "vcs.Git"
   }
 }]]></component>
   <component name="RecentsManager">
